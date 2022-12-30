@@ -6,14 +6,15 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf dist && babel src --out-dir dist  --copy-files",
-    "start": "node dist/app.js",
+    "build": "rimraf dist && babel src --out-dir   --copy-files",
+    "start": "node app.js",
     "start:dev": "nodemon --exec babel-node app.js"
   },
   "author": "Harsh",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "node-fetch": "^3.3.0",
     "nodemon": "^2.0.20",
     "puppeteer": "^19.3.0"
   },
