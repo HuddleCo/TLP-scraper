@@ -4,7 +4,7 @@ export const doWork = async () => {
   let page;
   let conversations;
   let interested;
-  let not_interested;
+  let notInterested;
 
   try {
     const browser = await puppeteer.launch({
@@ -57,7 +57,7 @@ export const doWork = async () => {
         .textContent.replace(" conversations", "");
     });
 
-    not_interested = await page.evaluate(() => {
+    notInterested = await page.evaluate(() => {
       return document
         .querySelector(
           "#ractive > div.content > div.page-inbox > div.page-inbox-header > div.dropdown.ml-3.show > div > a:nth-child(4) > div"
@@ -68,7 +68,7 @@ export const doWork = async () => {
     return JSON.stringify({
       dup__of_profiles: conversations,
       dup__of_conversations: interested,
-      dup__of_interested: not_interested,
+      dup__of_interested: notInterested,
     });
   } catch (err) {
     console.log("Could not create a browser instance => : ", err);
