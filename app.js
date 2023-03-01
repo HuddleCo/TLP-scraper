@@ -12,13 +12,14 @@ app.get("/", async (req, res) => {
   res.json({ status: true, message: "Our node.js app works" });
 });
 app.post("/webhook/scrape_tlp", async (req, res) => {
-  var columnValues = await doWork();
-  var query = `mutation($boardId: Int!, $itemId: Int!, $columnValues: JSON!) {change_multiple_column_values (board_id: $boardId, item_id: $itemId, column_values: $columnValues) {id}}`;
+  const columnValues = await doWork();
+  const query =
+    "mutation($boardId: Int!, $itemId: Int!, $columnValues: JSON!) {change_multiple_column_values (board_id: $boardId, item_id: $itemId, column_values: $columnValues) {id}}";
 
   const variables = {
     boardId: req.body.payload.inboundFieldValues.boardId,
     itemId: req.body.payload.inboundFieldValues.itemId,
-    columnValues: columnValues,
+    columnValues,
   };
   console.log("Column Values are as follows:");
   console.log(columnValues);
@@ -31,8 +32,8 @@ app.post("/webhook/scrape_tlp", async (req, res) => {
         "eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjE3ODU2NDc0MCwidWlkIjozMTA2OTg2OSwiaWFkIjoiMjAyMi0wOS0wMVQwMjo0MTowOS4wMDBaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6NjY4MDQ4MSwicmduIjoidXNlMSJ9.FkUIo2LrNQwetRYQ-9njWVrZsMrVNklgjqj7eldy2-o",
     },
     body: JSON.stringify({
-      query: query,
-      variables: variables,
+      query,
+      variables,
     }),
   })
     .then((res) => res.json({ status: "okay" }))
