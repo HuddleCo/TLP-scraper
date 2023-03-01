@@ -36,6 +36,7 @@
     },
     "rules": {}
   },
+  "prettier": {},
   "dependencies": {
     "express": "^4.18.2",
     "node-fetch": "^3.3.0",
