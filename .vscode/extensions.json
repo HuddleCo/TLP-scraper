@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "jock.svg",
+    "ms-vscode.live-server",
+    "ms-vsliveshare.vsliveshare",
+    "ryanluker.vscode-coverage-gutters"
+  ]
+}
