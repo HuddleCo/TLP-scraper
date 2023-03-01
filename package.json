@@ -18,6 +18,11 @@
     "*.js": "eslint --cache --fix",
     "*.{js,css,md}": "prettier --write"
   },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "dependencies": {
     "express": "^4.18.2",
     "node-fetch": "^3.3.0",
